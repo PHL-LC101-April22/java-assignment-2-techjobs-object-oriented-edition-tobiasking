@@ -42,5 +42,22 @@ public class JobTest {
         Job jobTwo = new Job("Mars Rover", new Employer("NASA"), new Location("Mars"), new PositionType("On Surface"), new CoreCompetency("Pain"));
         Assert.assertFalse(jobOne.equals(jobTwo));
     }
-
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType("Astronomical"), new CoreCompetency("Fuel Burn-Off"));
+        String expectResult = "ID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off";
+        char first = jobOne.toString().charAt(0);
+        char last = jobOne.toString().charAt(jobOne.toString().length()-1);
+        Assert.assertEquals('\n' + expectResult + '\n', jobOne.toString());
+        Assert.assertEquals(first, '\n');
+        Assert.assertEquals(last, '\n');
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType("Astronomical"), new CoreCompetency("Fuel Burn-Off"));
+        String expectresult = "\nID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off\n";
+        Assert.assertEquals(expectresult, jobOne.toString());
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
 }
