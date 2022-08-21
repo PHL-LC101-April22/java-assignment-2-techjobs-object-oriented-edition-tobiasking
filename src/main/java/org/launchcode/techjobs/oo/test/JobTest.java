@@ -60,4 +60,7 @@ public class JobTest {
     }
     @Test
     public void testToStringHandlesEmptyField() {
+        Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType(""), new CoreCompetency(""));
+        String expectresult = "\nID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Data not available\nCore Competency: Data not available\n";
+    }
 }
