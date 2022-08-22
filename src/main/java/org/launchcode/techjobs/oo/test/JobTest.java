@@ -45,7 +45,7 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType("Astronomical"), new CoreCompetency("Fuel Burn-Off"));
-        String expectResult = "ID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off";
+        String expectResult = "ID: 5\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off";
         char first = jobOne.toString().charAt(0);
         char last = jobOne.toString().charAt(jobOne.toString().length()-1);
         Assert.assertEquals('\n' + expectResult + '\n', jobOne.toString());
@@ -55,13 +55,13 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType("Astronomical"), new CoreCompetency("Fuel Burn-Off"));
-        String expectresult = "\nID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off\n";
+        String expectresult = "\nID: 4\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Astronomical\nCore Competency: Fuel Burn-Off\n";
         Assert.assertEquals(expectresult, jobOne.toString());
     }
     @Test
     public void testToStringHandlesEmptyField() {
         Job jobOne = new Job("Rocketship", new Employer("LaunchCode"), new Location("In Orbit"), new PositionType(""), new CoreCompetency(""));
-        String expectresult = "\nID: 1\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Data not available\nCore Competency: Data not available\n";
+        String expectresult = "\nID: 3\nName: Rocketship\nEmployer: LaunchCode\nLocation: In Orbit\nPosition Type: Data not available\nCore Competency: Data not available\n";
         Assert.assertEquals(expectresult, jobOne.toString());
     }
 }
